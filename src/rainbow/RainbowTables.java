@@ -2,12 +2,12 @@ package rainbow;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 
 public interface RainbowTables extends Remote {
 
-
-    String add(int a,int b) throws RemoteException;
+    List<RainbowTableDTO> generateRainbowTables(String password) throws RemoteException;
 
 
 }

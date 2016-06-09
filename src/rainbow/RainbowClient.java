@@ -3,6 +3,7 @@ package rainbow;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.List;
 
 public class RainbowClient {
 
@@ -14,16 +15,13 @@ public class RainbowClient {
 
         try {
 
-            String host = args[0];
-            String name = args[1];
+            String host = "localhost";
+            String name = "Server";
             Registry registry = LocateRegistry.getRegistry(host);
             RainbowTables rainbowTables = (RainbowTables) registry.lookup(name);
 
-            int a = Integer.parseInt(args[2]);
-            int b = Integer.parseInt(args[3]);
-            System.out.println(rainbowTables.add(a, b));
-
-
+            List<RainbowTableDTO> list = rainbowTables.generateRainbowTables("1111");
+            list.stream().forEach(x -> System.out.println("PASSWORD: " + x.getPassword() + "HASH: " +x.getHash()));
         } catch (Exception e) {
             System.out.println("CalculateClient exception: "+ e.getMessage());
             e.printStackTrace();
