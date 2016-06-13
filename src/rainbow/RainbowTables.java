@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RainbowTables extends Remote {
 
-    List<RainbowTableDTO> generateRainbowTables(String password) throws RemoteException;
+    List<RainbowTableDTO> generateRainbowTables() throws RemoteException;
 
 
 }
